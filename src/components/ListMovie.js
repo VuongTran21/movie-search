@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
+import Skeleton from 'react-loading-skeleton';
 
 const ListMovie = ({ movies }) => {
   let movieItems = [];
@@ -13,7 +14,7 @@ const ListMovie = ({ movies }) => {
   return (
     <>
       <ListGroup>
-        {movieItems.length > 0 && movieItems}
+        {movieItems.length > 0 ? movieItems : <Skeleton count={10} height={80} />}
       </ListGroup>
     </>
   );

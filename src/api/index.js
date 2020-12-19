@@ -11,3 +11,9 @@ export const popularMovies = () => {
 export const topMovies = () => {
   return axios.get('https://api.themoviedb.org/3/movie/top_rated');
 };
+
+export const search = (query, page = 1) => {
+  const url = `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}`;
+
+  return axios.get(url);
+};

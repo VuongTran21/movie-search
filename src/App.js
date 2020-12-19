@@ -1,29 +1,26 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import Home from './components/Home';
 
-import WelcomeContainer from './containers/WelcomeContainer';
-import PopularMovieContainer from './containers/PopularMovieContainer';
-import TopMovieContainer from './containers/TopMovieContainer';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import SearchListContainer from './containers/SearchListContainer';
+
 
 function App() {
   return (
-    <Container>
-      <Row className="row">
-        <Col xs={12}>
-          <WelcomeContainer />
-        </Col>
-      </Row>
-      <Row className="row">
-        <Col xs={6}>
-          <PopularMovieContainer />
-        </Col>
-        <Col xs={6}>
-          <TopMovieContainer />
-        </Col>
-      </Row>
-    </Container>
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/search">
+          <SearchListContainer />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

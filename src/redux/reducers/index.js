@@ -1,8 +1,9 @@
-import { GET_POPULAR_SUCCESS, GET_TOP_SUCCESS } from '../actions';
+import { GET_POPULAR_SUCCESS, GET_TOP_SUCCESS, SEARCH_COMPLETED } from '../actions';
 
 const initialState = {
   popularMovies: {},
   topMovies: {},
+  searchMovies: {},
 };
 
 export default function toDoApp(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function toDoApp(state = initialState, action) {
       return {
         ...state,
         topMovies: action.topMovies
+      };
+    case SEARCH_COMPLETED:
+      return {
+        ...state,
+        searchMovies: action.searchMovies
       };
     default:
       return state;

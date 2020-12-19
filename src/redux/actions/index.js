@@ -1,26 +1,11 @@
-export const ADD_TODO = 'ADD_TODO';
-export const LOAD_TODO_LIST = 'LOAD_TODO_LIST';
-export const RENDER_TODO_LIST = 'RENDER_TODO_LIST';
+import Search from "../../components/Search";
+
 export const GET_POPULAR = 'GET_POPULAR';
 export const GET_POPULAR_SUCCESS = 'GET_POPULAR_SUCCESS';
 export const GET_TOP = 'GET_TOP';
 export const GET_TOP_SUCCESS = 'GET_TOP_SUCCESS';
-
-export function addToDo(title) {
-  return {
-    type: ADD_TODO,
-    toDoItem: {
-      _id: (new Date().getTime()),
-      title
-    }
-  }
-}
-
-export function loadToDoList() {
-  return {
-    type: LOAD_TODO_LIST
-  };
-}
+export const SEARCH = 'SEARCH';
+export const SEARCH_COMPLETED = 'SEARCH_COMPLETED';
 
 export function getPopularMovie() {
   return {
@@ -31,5 +16,15 @@ export function getPopularMovie() {
 export function getTopMovie() {
   return {
     type: GET_TOP
+  }
+}
+
+export function searchAction(query, page) {
+  return {
+    type: SEARCH,
+    payload: {
+      query,
+      page
+    }
   }
 }
