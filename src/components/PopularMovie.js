@@ -1,11 +1,12 @@
 import React from 'react';
+import ListMovie from './ListMovie';
 
-const PopularMovie = (props) => {
-  console.log('props', props);
+const PopularMovie = ({ popularMovies }) => {
 
   return (
     <>
-
+      <h2>Popular Movies</h2>
+      <ListMovie movies={popularMovies.results || []} />
     </>
   );
 };
