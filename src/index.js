@@ -8,7 +8,7 @@ import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import { loadToDoList, getPopularMovie, getTopMovie } from './redux/actions/index';
+import { getPopularMovie, getTopMovie } from './redux/actions/index';
 import toDoApp from './redux/reducers/index';
 import rootSaga from './redux/sagas/index';
 const IS_DEV = process.env.NODE_ENV === 'development';
@@ -18,7 +18,6 @@ const store = createStore(toDoApp, IS_DEV ? composeWithDevTools(applyMiddleware(
 
 sagaMiddleware.run(rootSaga);
 
-store.dispatch(loadToDoList());
 store.dispatch(getPopularMovie());
 store.dispatch(getTopMovie());
 
