@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-import { Button, FormControl, InputGroup } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { Button, FormControl, InputGroup } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const Search = ({ searchMovies, search }) => {
-  console.log('search movies', searchMovies);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const history = useHistory();
 
   const handleSearch = () => {
-    let path = `search?query=${input}`;
-    history.push(path);
-    search(input, 1);
-  }
+    if (input) {
+      let path = `search?query=${input}`;
+      history.push(path);
+      search(input, 1);
+    } else {
+      alert("Input movie name");
+    }
+  };
 
   return (
     <InputGroup className="mb-3">
@@ -26,7 +29,9 @@ const Search = ({ searchMovies, search }) => {
       />
 
       <InputGroup.Append>
-        <Button onClick={() => handleSearch()} variant="outline-secondary">Search</Button>
+        <Button onClick={() => handleSearch()} variant="outline-secondary">
+          Search
+        </Button>
       </InputGroup.Append>
     </InputGroup>
   );

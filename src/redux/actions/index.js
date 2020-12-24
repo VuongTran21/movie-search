@@ -1,5 +1,3 @@
-import Search from "../../components/Search";
-
 export const GET_POPULAR = 'GET_POPULAR';
 export const GET_POPULAR_SUCCESS = 'GET_POPULAR_SUCCESS';
 export const GET_TOP = 'GET_TOP';
